@@ -19,6 +19,22 @@ class Deck < ActiveRecord::Base
   def sample_deck
     self.cards.sample(7)
   end
+
+  def mana_curve
+    cost_count = Hash.new
+    count = 0
+    8.times do
+      if count < 7
+        deck_card = Card.where(converted_cost == count)
+      else
+        deck_card = Card.where(converted_cost <= count)
+      end
+      card_array = Deck_Card.find_by(card_id: deck_card)
+      cost_count["converted_mana_cost_#{count}"] = card_array.length
+      count += 1
+    end
+    cost_count
+  end
 end
 
 #deck.add_cards([["Forest", 3], ["Plague Rats", 2], ["Bad Moon", 1]])
