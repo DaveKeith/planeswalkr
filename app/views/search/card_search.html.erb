@@ -1,0 +1,24 @@
+<h1>Search Results</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Colors</th>
+			<th>Type</th>
+			<th>Converted Mana Cost</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+      <!-- Add hover effects on the table rows to display the card image! -->
+			<% @cards.each do |card| %>
+				<td><%= card.name %></td>
+				<td><%= card.colors.join(", ") %></td>
+				<td><%= card.card_type %></td>
+				<td><%= card.converted_cost %></td>
+			<% end %>
+		</tr>
+	</tbody>
+</table>

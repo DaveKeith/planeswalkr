@@ -1,0 +1,24 @@
+<%= form_tag(card_search_path, method: :get) do %>
+
+	<%= label_tag "Name" %>
+	<%= text_field_tag :name %>
+
+  <%= label_tag "Editions" %>
+  <%= select_tag :card_set,
+    options_from_collection_for_select(CardSet.all, "name", "id") %>
+
+	<%= label_tag "Converted Cost" %>
+	<%= select_tag :converted_cost, [1,2,3,4,5,6,7,8,9,10] %>
+
+	<%= label_tag "Type" %>
+	<%= select_tag :card_type, ["Artifact", "Creature", "Enchantment", "Instant", "Land", "Planeswalker", "Sorcery"] %>
+
+  <%= label_tag "Colors" %>
+  <%= select_tag :colors, ["White", "Black", "Blue", "Green", "Red"] %>
+
+	<%= label_tag "Text" %>
+	<%= text_field_tag :text %>
+
+	<%= button_tag "Submit" %>
+
+<% end %>

@@ -7,13 +7,18 @@ Rails.application.routes.draw do
 
   root to: "users#index"
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    resources :decks
+  end
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/login", to: "sessions#destroy"
 
-  resources :cardsets, only: [:new, :create, :show]
+  resources :cardsets, only: [:new, :create, :index, :show]
+
+  get "cards/search", to: "search#card_search", as: "card_search"
+  get "decks", to: "decks#all_decks", as: "all_decks"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -3,6 +3,11 @@
 <%= form_tag(cardsets_path, multipart: true) do %>
     <%= label_tag("Set MtG JSON File") %>
     <%= file_field_tag(:cardset) %>
-
+    <br>
+    <br>
+    <%= label_tag("Image Directory") %>
+    <%= text_field_tag(:image_dir) %> 
+    <br>
+    <br>
     <%= button_tag("Submit") %>
 <% end %>

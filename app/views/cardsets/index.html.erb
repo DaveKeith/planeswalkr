@@ -1,0 +1,15 @@
+<h1>Card Set Index</h1>
+
+<ul class="cardset">
+  <% @cardsets.each do |cardset| %>
+    <div class="card grey lighten-3">
+      <span class="card-title">
+        CARD SET: <%= link_to("#{cardset.name}", cardset_path(cardset.code))%>
+      </span>
+        <ul>
+          <li>SET TYPE: <%= cardset.set_type %></li>
+          <li>RELEASE DATE: <%= cardset.release_date %></li>
+      </ul>
+    </div>
+  <% end %>
+</ul>

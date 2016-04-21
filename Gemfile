@@ -30,6 +30,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use materialize for a less awful UI.
 gem 'materialize-sass'
 
+gem 'kaminari'
+
+gem 'pg_search'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

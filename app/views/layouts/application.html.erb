@@ -8,7 +8,47 @@
 </head>
 <body>
 
-<%= yield %>
+<!-- Top Nav -->
+	<nav>
+    <div class="nav-wrapper #311b92 deep-purple darken-4">
+    	<div class="row">
+    		<div class="col s10 offset-s1">
+          <%= link_to("Super Rad Nerdy Planeswalkr", root_path, class: "brand-logo") %>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><%= link_to("Decks", all_decks_path)%></li>
+            <li><%= link_to("Editions", cardsets_path) %>
+            <% if current_user && current_user.admin? %>
+                <li><%= link_to("Import Set", new_cardset_path) %>
+            <% end %>
+            <% if current_user %>
+                <li><%= link_to("Logout", login_path, method: :delete) %>
+            <% else %>
+		            <li><%= link_to("Login", login_path)%></li>
+                <li><%= link_to("Register", new_user_path)%></li>
+            <% end %>
+		      </ul>
+	      </div>
+      </div>
+    </div>
+  </nav>
+<!-- End Top Nav -->
+
+<!-- Side Nav -->
+	<!-- BEGIN SIDEBAR -->
+			<div class="sidebar-top">
+				<div class="menu-sidebar">
+				  <%= render partial: "shared/card_search" %>
+				</div>
+			</div>
+		<!-- END SIDEBAR -->
+<!-- End Side Nav -->
+<div class="yield">
+	<div class="row">
+		<div class="">
+		<%= yield %>
+		</div>
+	</div>
+</div>
 
 </body>
 </html>
